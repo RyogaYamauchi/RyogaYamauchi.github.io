@@ -53,3 +53,5 @@ SR400(街乗りライダー)
 
 設計(Clean Architecture)
 {{< figure src="/images/clean.jpg" class="center" width="400"  >}}
+
+更新 : 2021/9
