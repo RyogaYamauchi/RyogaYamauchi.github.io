@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://example.com/post/</loc>
+    <lastmod>2021-09-22T12:39:25+09:00</lastmod>
+  </url><url>
+    <loc>https://example.com/</loc>
+    <lastmod>2021-09-22T12:39:25+09:00</lastmod>
+  </url><url>
+    <loc>https://example.com/post/my/</loc>
+    <lastmod>2021-09-22T12:39:25+09:00</lastmod>
+  </url><url>
     <loc>https://example.com/blog/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -15,9 +24,6 @@
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/blog/markdown-syntax/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.com/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/tags/</loc>
