@@ -1,0 +1,21 @@
+[submodule "blog/themes/hugo-PaperMod"]
+	path = blog/themes/hugo-PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "blog/themes/hugo-profile"]
+	path = blog/themes/hugo-profile
+	url = https://github.com/gurusabarish/hugo-profile.git
+[submodule "blog/themes/hugo-classic"]
+	path = blog/themes/hugo-classic
+	url = https://github.com/goodroot/hugo-classic.git
+[submodule "blog/themes/hugo-theme-air"]
+	path = blog/themes/hugo-theme-air
+	url = https://github.com/syui/hugo-theme-air
+[submodule "blog/themes/npq-hugo"]
+	path = blog/themes/npq-hugo
+	url = https://github.com/saadnpq/npq-hugo.git
+[submodule "blog/themes/pulp"]
+	path = blog/themes/pulp
+	url = https://github.com/koirand/pulp.git
+[submodule "blog/themes/themes/github-style"]
+	path = blog/themes/themes/github-style
+	url = https://github.com/MeiK2333/github-style.git
