@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Site Title</title>
-    <link>https://example.com/</link>
+    <link>https://ryogayamauchi.github.io/</link>
     <description>Recent content on Site Title</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 22 Sep 2021 12:39:25 +0900</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Sep 2021 12:39:25 +0900</lastBuildDate><atom:link href="https://ryogayamauchi.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>自己紹介</title>
-      <link>https://example.com/post/my/</link>
+      <link>https://ryogayamauchi.github.io/post/my/</link>
       <pubDate>Wed, 22 Sep 2021 12:39:25 +0900</pubDate>
       
-      <guid>https://example.com/post/my/</guid>
+      <guid>https://ryogayamauchi.github.io/post/my/</guid>
       <description>自己紹介 始めまして、山内龍我と申します。 京都産業大学 情報理工学部 3年生です。 HappyElements Cacalia Studio あんさんぶるスターズ!! Musicでアルバイトエンジニアも</description>
     </item>
     
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://example.com/blog/markdown-syntax/</link>
+      <link>https://ryogayamauchi.github.io/blog/markdown-syntax/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/markdown-syntax/</guid>
+      <guid>https://ryogayamauchi.github.io/blog/markdown-syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Rich Content</title>
-      <link>https://example.com/blog/rich-content/</link>
+      <link>https://ryogayamauchi.github.io/blog/rich-content/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/rich-content/</guid>
+      <guid>https://ryogayamauchi.github.io/blog/rich-content/</guid>
       <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Placeholder Text</title>
-      <link>https://example.com/blog/placeholder-text/</link>
+      <link>https://ryogayamauchi.github.io/blog/placeholder-text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/placeholder-text/</guid>
+      <guid>https://ryogayamauchi.github.io/blog/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Math Typesetting</title>
-      <link>https://example.com/blog/math-typesetting/</link>
+      <link>https://ryogayamauchi.github.io/blog/math-typesetting/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/math-typesetting/</guid>
+      <guid>https://ryogayamauchi.github.io/blog/math-typesetting/</guid>
       <description>In this theme we will be using MathJax 2.7
  To enable MathJax globally set the parameter math to true in a project&amp;rsquo;s configuration To enable MathJax on a per page basis include the parameter math: true in content files  Note: Use the online reference of MathJax TeX and LaTeX Support
 Examples Inline math: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
@@ -56,10 +56,10 @@ Block math: $$ \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } $$</d
     
     <item>
       <title>Emoji Support</title>
-      <link>https://example.com/blog/emoji-support/</link>
+      <link>https://ryogayamauchi.github.io/blog/emoji-support/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/emoji-support/</guid>
+      <guid>https://ryogayamauchi.github.io/blog/emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
     

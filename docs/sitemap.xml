@@ -2,60 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/post/</loc>
+    <loc>https://ryogayamauchi.github.io/post/</loc>
     <lastmod>2021-09-22T12:39:25+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://ryogayamauchi.github.io/</loc>
     <lastmod>2021-09-22T12:39:25+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/post/my/</loc>
+    <loc>https://ryogayamauchi.github.io/post/my/</loc>
     <lastmod>2021-09-22T12:39:25+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/</loc>
+    <loc>https://ryogayamauchi.github.io/blog/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/css/</loc>
+    <loc>https://ryogayamauchi.github.io/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/html/</loc>
+    <loc>https://ryogayamauchi.github.io/tags/html/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/markdown/</loc>
+    <loc>https://ryogayamauchi.github.io/tags/markdown/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/markdown-syntax/</loc>
+    <loc>https://ryogayamauchi.github.io/blog/markdown-syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://ryogayamauchi.github.io/tags/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/themes/</loc>
+    <loc>https://ryogayamauchi.github.io/tags/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/privacy/</loc>
+    <loc>https://ryogayamauchi.github.io/tags/privacy/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/rich-content/</loc>
+    <loc>https://ryogayamauchi.github.io/blog/rich-content/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/shortcodes/</loc>
+    <loc>https://ryogayamauchi.github.io/tags/shortcodes/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/placeholder-text/</loc>
+    <loc>https://ryogayamauchi.github.io/blog/placeholder-text/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/text/</loc>
+    <loc>https://ryogayamauchi.github.io/tags/text/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/math-typesetting/</loc>
+    <loc>https://ryogayamauchi.github.io/blog/math-typesetting/</loc>
     <lastmod>2019-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/emoji/</loc>
+    <loc>https://ryogayamauchi.github.io/tags/emoji/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/blog/emoji-support/</loc>
+    <loc>https://ryogayamauchi.github.io/blog/emoji-support/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://ryogayamauchi.github.io/categories/</loc>
   </url>
 </urlset>
