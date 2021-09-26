@@ -1,5 +1,5 @@
 baseurl = "https://ryogayamauchi.github.io/"
-title = "Site Title"
+title = "RyogaYamauchiのブログ"
 theme = "github-style"
 canonifyurls = true
 hasCJKLanguage = true
