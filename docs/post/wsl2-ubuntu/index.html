@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://ryogayamauchi.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://ryogayamauchi.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://ryogayamauchi.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://ryogayamauchi.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://ryogayamauchi.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://ryogayamauchi.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://ryogayamauchi.github.io/css/syntax.css' />
+    <title>WSL2でWindowsの上にLinux環境を構築する - RyogaYamauchiのブログ</title>
+    
+    <link rel="icon" href="images/favicon.ico">
+    <meta name="theme-color" content="#1e2327">
+
+    
+    <meta name="description"
+  content="はじめに みなさんは何のOSを使っているでしょうか。Windwos? MacOS? Ubuntu? CentOS? それ以外? 僕は業務でも私生活でもMacOSを使用しています。 理由は大" />
+<meta name="keywords"
+  content='' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://ryogayamauchi.github.io/post/wsl2-ubuntu/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="WSL2でWindowsの上にLinux環境を構築する - RyogaYamauchiのブログ" />
+<meta name="twitter:description"
+  content="はじめに みなさんは何のOSを使っているでしょうか。Windwos? MacOS? Ubuntu? CentOS? それ以外? 僕は業務でも私生活でもMacOSを使用しています。 理由は大" />
+<meta name="twitter:site" content="https://ryogayamauchi.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://ryogayamauchi.github.io/">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="WSL2でWindowsの上にLinux環境を構築する - RyogaYamauchiのブログ">
+<meta property="og:description"
+  content="はじめに みなさんは何のOSを使っているでしょうか。Windwos? MacOS? Ubuntu? CentOS? それ以外? 僕は業務でも私生活でもMacOSを使用しています。 理由は大" />
+<meta property="og:url" content="https://ryogayamauchi.github.io/post/wsl2-ubuntu/" />
+<meta property="og:site_name" content="WSL2でWindowsの上にLinux環境を構築する" />
+<meta property="og:image"
+  content="https://ryogayamauchi.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2021-10-06 19:52:46 &#43;0900 JST" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://ryogayamauchi.github.io/">
+        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://ryogayamauchi.github.io/">
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://ryogayamauchi.github.io/">
+        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+          width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+  
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://ryogayamauchi.github.io/">
+                  <img class=" avatar-user"
+                    src="https://user-images.githubusercontent.com/41036704/134354939-b12bc18d-b3f9-44b8-8ff0-851662144062.jpg"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://ryogayamauchi.github.io/">RyogaYamauchi</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://ryogayamauchi.github.io/post/wsl2-ubuntu/">WSL2でWindowsの上にLinux環境を構築する</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Wed, 06 Oct 2021 19:52:46 &#43;0900"
+                    class="no-wrap">
+                    Wed, 06 Oct 2021 19:52:46 &#43;0900</relative-time>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" class="btn btn-octicon m-0 mr-2 p-2" aria-haspopup="menu" aria-label="Table of Contents" role="button">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                          1693 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5">
+                <article class="markdown-body entry-content container-lg"><h2 id="はじめに">はじめに</h2>
+<p>みなさんは何のOSを使っているでしょうか。Windwos? MacOS? Ubuntu? CentOS? それ以外?</p>
+<p>僕は業務でも私生活でも<strong>MacOS</strong>を使用しています。<br>
+理由は大学と職場が指定しているからです。</p>
+<p>しかし、VRゲームやWindows専用ゲームがしたいときWindows機器を持っていないと何かと不便です。<br>
+でも、パッケージ管理系もlinuxで慣れているのでそちらを使いたい気持ちもあります。<br>
+今回は、新しく<strong>8万円</strong>で買ったVR ReadyなWindowsにLinuxディストリビューションのUbuntuを乗せた話を書こうと思います。</p>
+<h2 id="購入したpc">購入したPC</h2>
+<p>大学生の財力なんてたかが知れています。<br>
+買ったのはメルカリで使用歴3年程度の型落ち中古PC　その名もガレリアXVです！ﾊﾟｰﾝ!!!</p>
+<p><figure class="center"><img src="https://ryogayamauchi.github.io/images/gareria.jpg" width="600"/>
+</figure>
+
+引用元 : <a href="https://game-pc-bto.com/review/galleria-xv/">https://game-pc-bto.com/review/galleria-xv/</a></p>
+<p>このスペックで送料込み8万円、安いですね~</p>
+<p>メルカリを常時監視してたら割と転がってたりします。自分でお掃除ができる人はおすすめです。<br>
+メモリは16GBで増設済みです。特殊なことせず家で使う分には十分すぎる！</p>
+<h2 id="linux乗せる">Linux乗せる</h2>
+<p>乗せたOSは前述にもありますが、Ubuntu(20.04)です。<br>
+理由は前に使ったことがあったためです、次はCentOS使ったことないから使ってみたいな、、</p>
+<p>やり方はいたって簡単!!
+Windowsさんが用意してくれています。</p>
+<p>PowerShellで以下のコマンドを実行して、WSLを有効にします。<br>
+うまくいかない場合は参考の(1)を見てみてください</p>
+<p><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code><br>
+<code>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</code><br>
+<code>wsl --set-default-version 2</code></p>
+<p>再起動</p>
+<p>MicroSoft Storeを開いてUbuntu(20.04 LTS)を指定してインストールしてください
+<figure class="center"><img src="https://ryogayamauchi.github.io/images/store.PNG" width="600"/>
+</figure>
+</p>
+<p>次はユーザの作成です。<br>
+PowerShellで以下のコマンドを実行します。</p>
+<p>最初にユーザ作成をする画面が表示されますが、そのアカウントはsuper userになるのでユーザ名、パスワードを設定して覚えておきます。</p>
+<p>新しく、管理者権限を持たないユーザを作成します。</p>
+<p>更新<br>
+<code>sudo apt update</code></p>
+<p>アップグレード<br>
+<code>sudo apt upgrade -y</code></p>
+<p>ユーザの追加<br>
+<code>sudo adduser XXX</code> // XXXは任意の名前</p>
+<p>ユーザの追加が完了したら、PowerShellで以下を実行します。</p>
+<p><code>ubuntu20.04 config --default-user XXX</code> // XXXは先ほど指定したユーザネーム</p>
+<p>これでwslにログインする際のデフォルトユーザが設定できました。</p>
+<p><strong>WindowsでLinuxディストリビューションを使えるようになった!!</strong></p>
+<h2 id="備考">備考</h2>
+<p>ここからはやってもいいし、やらなくてもいいことのTIPSです。</p>
+<h3 id="ホームディレクトリの指定">ホームディレクトリの指定</h3>
+<p>次にホームディレクトリの指定をします。<br>
+デフォルトでは、<code>/home/XXX</code>になっていて扱いづらいです。(僕だけかも)</p>
+<p>なので、ホームディレクトリをwindowsと同じような位置に設定してあげます。</p>
+<p><code>sudo vim /etc/passwd</code><br>
+<code>XXX:1000:1000:YYY:/home/XXX:/bin/bash</code><br>
+以下に変更↓<br>
+<code>XXX:1000:1000:YYY:/mnt/c/Users/ZZZ:/bin/bash</code></p>
+<p>YYY, ZZZはそれぞれあなたのWindowsアカウントの名前になっていると思います。</p>
+<p>ubuntuを再起動したらホームディレクトリが変更されているはずです。</p>
+<h3 id="github-ssh設定">GitHub ssh設定</h3>
+<p>ホームディレクトリを変更したことにより、ubuntu上でのssh設定がややこしくなります。</p>
+<p>ubuntu上でホームディレクトリを変更しましたが、gitさんがsshで使おうとするディレクトリの位置と違う場所になるので、シンボリックリンクでリンクしてあげます。</p>
+<p>ubuntuのホームディレクトリに移動<br>
+<code> cd /home/XXX</code></p>
+<p>ssh-keyの作成<br>
+<code>ssh-keygen -t rsa -b 4096 -C &quot;email.example.com&quot;</code> // emailはあなたのメールアドレスを設定してください</p>
+<p>ssh-keygenコマンドで作成した<code>id_rsa, id_rsa.pub</code>が存在するか確認してください<br>
+<code>ls -la /home/XXX/.ssh</code></p>
+<p>シンボリックリンクを作成します<br>
+<code>ln -s /home/XXX/.ssh ~/</code></p>
+<p>これでgitさんがsshでアクセスできる設定ができました！</p>
+<p>GitHubとの連携は調べたら出てくるので書きませんが、お忘れなく、、(<a href="https://qiita.com/shizuma/items/2b2f873a0034839e47ce">https://qiita.com/shizuma/items/2b2f873a0034839e47ce</a>)</p>
+<h2 id="さいごに">さいごに</h2>
+<p>Windows環境にubuntuを乗せることで、linux系のソフトウェアが使えるようになります。<br>
+ヤッタネ！！<br>
+読んでくれてありがとう！</p>
+<h2 id="参考">参考</h2>
+<p>(1) WSLインストール <a href="https://qiita.com/whim0321/items/ed76b490daaec152dc69">https://qiita.com/whim0321/items/ed76b490daaec152dc69</a><br>
+(2) WSLインストール <a href="https://docs.microsoft.com/ja-jp/windows/wsl/install">https://docs.microsoft.com/ja-jp/windows/wsl/install</a><br>
+(3) WSLのホームディレクトリ位置変更 <a href="https://qiita.com/funacchi/items/c3bb78a546cf2605205d">https://qiita.com/funacchi/items/c3bb78a546cf2605205d</a><br>
+(4) WSLでgit sshを使う <a href="https://qiita.com/satto_sann/items/9d95241af81dc4466ee1">https://qiita.com/satto_sann/items/9d95241af81dc4466ee1</a></p>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+ 
+ 
+ 
+ window.onload = function () {
+   const header = document.getElementById('post-header');
+   const headerHeight = header.offsetHeight;
+   
+   document.documentElement.style.scrollPaddingTop = headerHeight + 10 + "px";
+ }
+
+ const tocToggleButton = document.getElementById("toc-toggle");
+
+ const tippyInstance = tippy('#toc-toggle', {
+  trigger: 'click',
+  content: '<div id="table-of-contents">\u003cnav id=\u0022TableOfContents\u0022\u003e\n  \u003cul\u003e\n    \u003cli\u003e\u003ca href=\u0022#はじめに\u0022\u003eはじめに\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#購入したpc\u0022\u003e購入したPC\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#linux乗せる\u0022\u003eLinux乗せる\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#備考\u0022\u003e備考\u003c\/a\u003e\n      \u003cul\u003e\n        \u003cli\u003e\u003ca href=\u0022#ホームディレクトリの指定\u0022\u003eホームディレクトリの指定\u003c\/a\u003e\u003c\/li\u003e\n        \u003cli\u003e\u003ca href=\u0022#github-ssh設定\u0022\u003eGitHub ssh設定\u003c\/a\u003e\u003c\/li\u003e\n      \u003c\/ul\u003e\n    \u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#さいごに\u0022\u003eさいごに\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#参考\u0022\u003e参考\u003c\/a\u003e\u003c\/li\u003e\n  \u003c\/ul\u003e\n\u003c\/nav\u003e</div>',
+  allowHTML: true,
+  placement: 'bottom-start',
+  interactive: true,
+  arrow: false,
+  maxWidth: "none",
+  onHide: function () { tocToggleButton.classList.remove("hover"); },
+  onShow: function () { tocToggleButton.classList.add("hover"); },
+  onShown: function () {
+    selectTableOfContentsOption();
+
+    if (window.hasSetupTableOfContentsListeners) {
+      return;
+    }
+
+    const tableOfContents = document.getElementById("table-of-contents");
+    tableOfContents.addEventListener('click', function () {
+      
+      tippyInstance[0].hide();
+    });
+
+    window.hasSetupTableOfContentsListeners = true;
+  }
+ });
+
+ function selectTableOfContentsOption () {
+   const optionSelectedClass = 'table-of-contents-option-selected';
+
+   const tableOfContentsOptions = document.querySelectorAll("#table-of-contents > nav > ul li");
+
+   for (const option of tableOfContentsOptions) {
+     
+
+     const [child] = option.children;
+     if (child.tagName.toLowerCase() !== 'a') {
+       continue;
+     }
+
+     if (window.location.href === child.href) {
+       child.classList.add(optionSelectedClass);
+     } else {
+       child.classList.remove(optionSelectedClass);
+     }
+   }
+ }
+
+ window.onhashchange = selectTableOfContentsOption;
+</script>
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://ryogayamauchi.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://ryogayamauchi.github.io/js/github-style.js"></script>
+
+
+
+</html>

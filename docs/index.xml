@@ -5,7 +5,16 @@
     <link>https://ryogayamauchi.github.io/</link>
     <description>Recent content on RyogaYamauchiのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 24 Sep 2021 22:52:28 +0900</lastBuildDate><atom:link href="https://ryogayamauchi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Oct 2021 19:52:46 +0900</lastBuildDate><atom:link href="https://ryogayamauchi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL2でWindowsの上にLinux環境を構築する</title>
+      <link>https://ryogayamauchi.github.io/post/wsl2-ubuntu/</link>
+      <pubDate>Wed, 06 Oct 2021 19:52:46 +0900</pubDate>
+      
+      <guid>https://ryogayamauchi.github.io/post/wsl2-ubuntu/</guid>
+      <description>はじめに みなさんは何のOSを使っているでしょうか。Windwos? MacOS? Ubuntu? CentOS? それ以外? 僕は業務でも私生活でもMacOSを使用しています。 理由は大</description>
+    </item>
+    
     <item>
       <title>プロトスプリントリーグ ゲーム開発インターンに参加しました 2021/9</title>
       <link>https://ryogayamauchi.github.io/post/intern_202109/</link>
