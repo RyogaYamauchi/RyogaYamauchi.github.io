@@ -6,7 +6,7 @@ draft: false
 # 自己紹介
 始めまして、山内龍我と申します。
 
-{{< figure src="/images/icon.jpg" class="center" width="200"  >}}
+{{< figure src="https://user-images.githubusercontent.com/41036704/215326613-136bb047-8b18-46fa-9064-e25c3dbfbb44.jpg" class="center" width="200"  >}}
 
 一番好きな技術は「ゲーム開発」です。
 
